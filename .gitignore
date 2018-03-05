@@ -1,0 +1,8 @@
+.gradle/
+.idea/
+out
+build/
+target/
+
+# Mac
+.DS_Store
