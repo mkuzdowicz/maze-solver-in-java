@@ -44,9 +44,9 @@ public class MazeSolver {
         if (rowIdx < 0 || rowIdx >= maze.size()) return;
         if (colIdx < 0 || colIdx >= maze.get(rowIdx).size()) return;
 
-        if (visited.get(colIdx).get(rowIdx)) return;
+        if (visited.get(rowIdx).get(colIdx)) return;
 
-        String currentChar = maze.get(colIdx).get(rowIdx);
+        String currentChar = maze.get(rowIdx).get(colIdx);
 
         if (currentChar.equals(WALL_CHAR)) return;
 
@@ -56,7 +56,7 @@ public class MazeSolver {
             return;
         }
 
-        visited.get(colIdx).add(rowIdx, true);
+        visited.get(rowIdx).add(colIdx, true);
 
         solveRecursively(visited, rowIdx - 1, colIdx);
         solveRecursively(visited, rowIdx + 1, colIdx);
