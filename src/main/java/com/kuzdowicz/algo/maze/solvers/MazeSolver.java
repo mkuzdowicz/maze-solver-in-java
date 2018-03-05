@@ -5,10 +5,10 @@ import java.util.List;
 
 public class MazeSolver {
 
-    private final String EXIT_CHAR = "3";
-    private final String WALL_CHAR = "1";
-    private final int START_ROW = 0;
-    private final int START_COL = 0;
+    private static final String EXIT_CHAR = "3";
+    private static final String WALL_CHAR = "1";
+    private static final int START_ROW = 0;
+    private static final int START_COL = 0;
 
     private boolean founded = false;
 
@@ -41,9 +41,10 @@ public class MazeSolver {
 
         System.out.println("visiting rowIdx: " + rowIdx + " , colIdx: " + colIdx);
 
-        if (colIdx < 0 || colIdx >= maze.size()) return;
         if (rowIdx < 0 || rowIdx >= maze.size()) return;
-        if (visited.get(rowIdx).get(colIdx)) return;
+        if (colIdx < 0 || colIdx >= maze.get(rowIdx).size()) return;
+
+        if (visited.get(colIdx).get(rowIdx)) return;
 
         String currentChar = maze.get(colIdx).get(rowIdx);
 
@@ -55,7 +56,7 @@ public class MazeSolver {
             return;
         }
 
-        visited.get(rowIdx).add(colIdx, true);
+        visited.get(colIdx).add(rowIdx, true);
 
         solveRecursively(visited, rowIdx - 1, colIdx);
         solveRecursively(visited, rowIdx + 1, colIdx);

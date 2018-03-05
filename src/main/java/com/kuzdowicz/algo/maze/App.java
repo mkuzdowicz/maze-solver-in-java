@@ -11,15 +11,15 @@ public class App {
         List<List<String>> maze1 = new MazeLoader().loadMazeFromFile("small_maze.txt");
         println(maze1);
         boolean solved = new MazeSolver(maze1, false).solve();
-        println("SOLVED maze1 => " + solved);
+        println("\n| SOLVED maze1 => " + solved + " |");
 
         List<List<String>> maze2 = new MazeLoader().loadMazeFromFile("small_maze_no_solution.txt");
         println(maze2);
         boolean solved2 = new MazeSolver(maze2, false).solve();
-        println("SOLVED2 => " + solved2);
+        println("\n| SOLVED2 maze2 => " + solved2 + " |");
 
         boolean solved3 = new MazeSolver(maze2, true).solve();
-        println("SOLVED3 with ability to move diagonal => " + solved3);
+        println("\n| SOLVED3 with ability to move diagonal maze2 => " + solved3 + " |");
 
     }
 
